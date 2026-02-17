@@ -1,0 +1,41 @@
+{
+  "name": "vds-multiplex",
+  "version": "0.9.0",
+  "description": "Lite-PaaS engine for SvelteKit and Node.js projects with dynamic subdomains",
+  "private": true,
+  "type": "module",
+  "author": "HeadMad",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "server",
+    "local"
+  ],
+  "scripts": {
+    "setup": "node --env-file=.env local/setup.js || node local/setup.js",
+    "create-app": "node local/create-app.js",
+    "server:dev": "node --env-file=.env server/index.js",
+    "deploy": "node --env-file=.env local/deploy.js",
+    "reload": "node --env-file=.env local/deploy.js --reload-only",
+    "backup": "node --env-file=.env local/backup.js",
+    "build:all": "pnpm -r run build",
+    "install:all": "pnpm install",
+    "clean": "pnpm -r exec rm -rf build .svelte-kit node_modules"
+  },
+  "devDependencies": {
+    "archiver": "^6.0.2",
+    "node-ssh": "^13.2.1"
+  },
+  "keywords": [
+    "vds",
+    "deployment",
+    "monorepo",
+    "sveltekit",
+    "wildcard-subdomains",
+    "nodejs",
+    "sqlite"
+  ]
+}

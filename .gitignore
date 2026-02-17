@@ -1,0 +1,61 @@
+# --- Зависимости ---
+node_modules/
+.pnpm-debug.log*
+
+# --- Секреты (КРИТИЧЕСКИ ВАЖНО) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+
+# --- Базы данных (SQLite) ---
+# Игнорируем файлы баз данных, так как они уникальны для VDS и локалки
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+# Игнорируем содержимое папок db в приложениях
+apps/**/db/*
+# Но разрешаем Git следить за самой папкой (через .gitkeep), если нужно
+!apps/**/db/.gitkeep
+
+# --- Результаты сборки ---
+# Мы билдим локально, но не храним билды в Git, чтобы репозиторий был легким
+dist/
+build/
+.svelte-kit/
+.output/
+package-lock.json
+pnpm-lock.yaml
+
+# --- Бэкапы ---
+# Локальная папка, куда скачиваются бэкапы с сервера
+backups/
+*.tar.gz
+*.zip
+
+# --- Логи ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Операционная система ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE (VS Code, WebStorm) ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Прочее ---
+tmp/
+temp/

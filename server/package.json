@@ -1,0 +1,11 @@
+{
+  "name": "vds-multiplex-router",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "ssl:update": "node ssl-update.js"
+  }
+}
